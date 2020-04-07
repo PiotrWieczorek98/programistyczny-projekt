@@ -1,0 +1,7 @@
+{
+    "name": "hatespeechdetector",
+    "version": "0.1.0",
+    "dependencies": {
+      "@tensorflow/tfjs": "^1.3.2"
+    }
+  }

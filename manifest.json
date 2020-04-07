@@ -1,0 +1,18 @@
+{
+    "name": "hatespeechdetector",
+    "version" : "1.0",
+    "manifest_version" : 2,
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+        }
+      ],
+    "browser_action": {
+        "default_title": "Hate Speech Detector",
+        "default_popup": "popup.html"
+    },
+    "permissions": ["tabs", "<all_urls>"],
+    "content_security_policy":  "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net/npm/@tensorflow/tfjs https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity; object-src 'self'"
+
+}
