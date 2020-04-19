@@ -16,7 +16,7 @@ for (var i = 0; i < elements.length; i++) {
         if (node.nodeType === 3) {
             var text = node.nodeValue;
             console.log(text);
-            var replacedText = text.replace('hate', 'LOVE');
+            var replacedText = text.replace('Hate', 'LOVE');
             if (replacedText !== text) {
                 element.style.backgroundColor = "indianred";
             }
