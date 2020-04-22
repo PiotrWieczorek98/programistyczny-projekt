@@ -1,0 +1,20 @@
+// TODO: Not sure how to define and export all of that, but format might be useful
+// Of course new data, not the same as in training
+[
+    {
+        "text": "you suck",
+        "intent": "hate"
+    },
+    {
+        "text": "fuck you",
+        "intent": "hate"
+    },
+    {
+        "text": "have a nice day",
+        "intent": "none"
+    },
+    {
+        "text": "hello",
+        "intent": "none"
+    }
+]
