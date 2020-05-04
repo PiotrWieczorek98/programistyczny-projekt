@@ -37,6 +37,7 @@ toxicity.load(threshold, label).then(model => {
 
 function afterResponse(res) {
     console.log(res);
+    res.
 }
 
 function popup() {
@@ -48,6 +49,7 @@ function popup() {
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("button1").addEventListener("click", popup);
+
 });
 
 

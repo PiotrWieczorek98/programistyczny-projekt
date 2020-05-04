@@ -13,9 +13,6 @@
             ],
             "js": [
                 "content.js"
-            ],
-            "run_at": [
-                "document_idle"
             ]
         }
     ],
@@ -23,5 +20,6 @@
         "default_popup": "popup.html",
         "default_icon": "images/get_started16.png"
     },
-    "manifest_version": 2
+    "manifest_version": 2,
+    "content_security_policy":  "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.5; object-src 'self'"
 }
