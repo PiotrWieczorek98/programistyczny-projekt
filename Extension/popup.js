@@ -1,13 +1,13 @@
 console.log("ready")
 async function useModel() {
-    const model = await tf.loadModel('/model/model.json'); 
+    const model = await tf.loadLayersModel('/model/model.json'); 
     const image = new Image();
     image.src='cyfra.png';
-    //tf.tensor(image).reshape([1, 28, 28, 1])]).array()
+        //tf.tensor(image).reshape([1, 28, 28, 1])]).array()
     //const example = tf.fromPixels(image);  // for example
     //const prediction = model.predict(example);
    // console.log(prediction);
-   const predict = model.predict(tf.fromPixels(image));
+   const predict = model.predict(tf.model);
 //    const predict = model.predict([tf.tensor(tf.fromPixels(image)).reshape([1, 28, 28, 1])]).array().then(function(scores){
 //     scores = scores[0];
 //     predicted = scores.indexOf(Math.max(...scores));
