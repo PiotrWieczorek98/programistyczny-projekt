@@ -8,7 +8,6 @@ import numpy as np
 import pandas as pd
 import tensorflowjs
 
-
 from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn import decomposition, ensemble
@@ -19,9 +18,11 @@ from keras import layers, models, optimizers
 # load dataset
 data = pd.read_csv('input/hate_speech.csv')
 texts = np.array(data['post'])
+print(type(texts[0]))
 labels = np.array(data['label'])
 trainDF = pd.DataFrame()
 trainDF['post'] = texts
+print(type(trainDF))
 trainDF['label'] = labels
 
 # split the dataset into training and validation datasets
@@ -65,6 +66,7 @@ def train_model(classifier, feature_vector_train, label, feature_vector_valid, i
 
     # predict the labels on validation dataset
     predictions = classifier.predict(feature_vector_valid)
+    print(type(feature_vector_valid))
 
     if is_neural_net:
         predictions = predictions.argmax(axis=-1)

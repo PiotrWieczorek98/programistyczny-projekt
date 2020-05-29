@@ -1,18 +1,12 @@
-console.log("ready")
+
+
 async function useModel() {
-    const model = await tf.loadLayersModel('/model/model.json'); 
-    const image = new Image();
-    image.src='cyfra.png';
-        //tf.tensor(image).reshape([1, 28, 28, 1])]).array()
-    //const example = tf.fromPixels(image);  // for example
-    //const prediction = model.predict(example);
-   // console.log(prediction);
-   const predict = model.predict(tf.model);
-//    const predict = model.predict([tf.tensor(tf.fromPixels(image)).reshape([1, 28, 28, 1])]).array().then(function(scores){
-//     scores = scores[0];
-//     predicted = scores.indexOf(Math.max(...scores));
-//   });
-  console.log(predict);
+    const model = await tf.loadLayersModel('/model/model.json');
+    console.log("Model loaded")
+    var nj = require('numjs');
+
+    // const prediction = model.predict(example);
+    // console.log(prediction);
 }
 
 useModel();
@@ -29,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (tab) {
                 var i = 0;
                 domContent.forEach(element => {
                     console.log(element);
-                    if (element.search("Hate") != (-1)) {
+                    if (element.search("hate") != (-1)) {
             
                         port.postMessage({index:i});
                     }
