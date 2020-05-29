@@ -39,8 +39,10 @@
             border-radius: 40%;
         }
     </style>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.5"></script> 
+    <script> webPreferences: { nodeIntegration: true} </script>
+    <script src="tensorflowjs.js"></script>
+    <script src="numjs.js"></script>
+    <script data-main="popup.js" src="require.js"></script>
     <script src="popup.js"></script>
 </head>
 
