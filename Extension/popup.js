@@ -1,9 +1,6 @@
-
-
 async function useModel() {
     const model = await tf.loadLayersModel('/model/model.json');
     console.log("Model loaded")
-    var nj = require('numjs');
 
     // const prediction = model.predict(example);
     // console.log(prediction);
@@ -24,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function (tab) {
                 domContent.forEach(element => {
                     console.log(element);
                     if (element.search("hate") != (-1)) {
-            
-                        port.postMessage({index:i});
+
+                        port.postMessage({ index: i });
                     }
                     i++;
                     console.log(i);
