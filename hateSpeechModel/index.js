@@ -65,13 +65,11 @@ function run() {
             model.fit(training_data, outputData, { epochs: 200 })
                 .then(history => {
                     model.predict(testing_data).print();
+                    model.save('file://./tfjs');
+                    console.log("Model saved!");
                 });
-
-            model.save('file://./tfjs');
         })
         .catch(err => console.log('Prom Err:', err));
-
-    console.log("Model saved!");
 
 };
 
