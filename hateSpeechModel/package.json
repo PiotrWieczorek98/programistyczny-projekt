@@ -1,0 +1,19 @@
+{
+  "name": "hate-speech",
+  "version": "1.0.0",
+  "description": "Hate Speech detection model.",
+  "main": "index.js",
+  "author": "Dominika Matyja",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "parcel --target=node index.js & nodemon dist/index.js"
+  },
+  "dependencies": {
+    "@tensorflow-models/universal-sentence-encoder": "^1.2.2",
+    "@tensorflow/tfjs": "^2.0.0",
+    "@tensorflow/tfjs-node": "^2.0.0",
+    "nodemon": "^2.0.4",
+    "parcel": "^1.12.4"
+  }
+}
