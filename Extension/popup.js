@@ -85,6 +85,46 @@ async function useModel() {
 
 useModel();
 
+
+////////////////////////////
+//ten model z filmami z pythona
+var modelMovie
+async function useModelMovie() {
+    console.log("Before load model")
+    modelMovie = await tf.loadLayersModel('/tfjs-model-movie/model.json')//'/python/tfjs-model/model.json') //Extension\python\tfjs-modelHUB
+    //tf.tensor(image).reshape([1, 28, 28, 1])]).array()
+    const text = "The movie was amazing and sounds were great"
+    console.log(text)
+    use.loadTokenizer().then(tokenizer => {
+        var encodedText = tokenizer.encode(text) // [341, 4125, 8, 140, 31, 19, 54]
+        console.log(encodedText)
+        encodedText=tf.cast(encodedText, 'float32')
+        console.log(encodedText)
+        var predict = modelMovie.predict((encodedText)).dataSync()[0];
+        console.log(predict)
+
+        //negative
+        console.log("Negative")
+        const textNeg="I do not think someone would like to go to the cinema and pay for watching this movie. Actor was horrible"
+        var enct = tokenizer.encode(textNeg)
+        console.log(enct)
+        enct=tf.cast(enct, 'float32')
+        console.log(enct)
+        var predict2 = modelMovie.predict((enct)).dataSync()[0];
+        console.log(predict2)
+
+        console.log(tf.util.encodeString(textNeg))
+        console.log(modelMovie.predict(tf.cast((tf.util.encodeString(textNeg), 'float32'))))
+
+      });
+    
+    const predict = modelMovie.predict(tf.tensor2d([[text]], [1, 1]));
+    console.log(predict);
+}
+
+useModelMovie();
+//////////////////////////////
+
 document.addEventListener("DOMContentLoaded", function (tab) {
     var checkPopupBtn = document.getElementById("checkBtn");
     checkPopupBtn.addEventListener('click', function () {
