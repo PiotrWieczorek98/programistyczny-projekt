@@ -35,7 +35,7 @@ chrome.runtime.onConnect.addListener(function (port) {
     port.onMessage.addListener(function (msg) {
         if (msg.index >= 0) {
             console.log(msg.index);
-            elements[msg.index + 1].style.backgroundColor = "indianred";
+            elements[msg.index].style.backgroundColor = "indianred";
         }
         if (msg.text === 'content') {
             port.postMessage(tabOfTexts);
