@@ -1,5 +1,5 @@
 const tf = require('@tensorflow/tfjs');
-require('@tensorflow/tfjs-node');
+require('@tensorflow/tfjs-node-gpu');
 const use = require('@tensorflow-models/universal-sentence-encoder');
 const posts_training = require('./training.json');
 const posts_testing = require('./testing.json');
@@ -50,7 +50,7 @@ model.compile({
     optimizer: tf.train.adam(.06), // This is a standard compile config
 });
 
-function run() {
+async function run() {
     Promise
         .all([
             encodeData(posts_training),
@@ -63,17 +63,14 @@ function run() {
             } = data;
 
             model.fit(training_data, outputData, { epochs: 200 })
-                .then(history => {
-                    model.predict(testing_data).print();
-                });
+                .then(resp =>
+                    model.save('file://./tfjs'))
+            console.log("Model saved!");
+            model.summary();
+        });
 
-            model.save('file://./tfjs');
-        })
-        .catch(err => console.log('Prom Err:', err));
 
-    console.log("Model saved!");
-
-};
+}
 
 // Call function
 run();
