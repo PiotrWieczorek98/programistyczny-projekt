@@ -54,7 +54,7 @@ async function run() {
     Promise
         .all([
             encodeData(posts_training),
-            encodeData(posts_training)
+            encodeData(posts_testing)
         ])
         .then(data => {
             const {
@@ -62,13 +62,17 @@ async function run() {
                 1: testing_data,
             } = data;
 
-            model.fit(training_data, outputData, { epochs: 200 })
-                .then(resp =>
-                    model.save('file://./tfjs'))
-            console.log("Model saved!");
+            // model.fit(training_data, outputData, { epochs: 200 })
+            //     .then(history =>
+            //         model.predict(testing_data).print())
+            // console.log("Model saved!");
+            // model.save('file://./tfjs');
+
+            const model = tf.loadLayersModel('file://./tfjs/model.json');
+            model.predict(testing_data).print();
             model.summary();
         });
-
+    console.log(data);
 
 }
 
