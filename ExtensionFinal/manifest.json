@@ -1,0 +1,28 @@
+{
+    "name": "Hate Text Recognition Extension",
+    "version": "1.0",
+    "description": "An extension for finding hate text on visited page using ML Model in tensorflow.js.",
+    "permissions": [
+        "activeTab",
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "./training.json"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/get_started16.png"
+    },
+    "manifest_version": 2,
+    "content_security_policy":  "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.2 https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder https://cdn.jsdelivr.net/npm/@tensorflow/tfjs https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity; object-src 'self'"
+}
